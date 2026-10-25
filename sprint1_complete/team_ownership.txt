@@ -1,0 +1,96 @@
+SPRINT 1 — TEAM OWNERSHIP RECORD
+Project: Team 6 — Module 2: Curriculum and Course Catalog
+Team Lead: Abir
+Branch: m2-course-catalog
+
+DEVELOPMENT OWNERSHIP
+
+Abir
+Owner:
+- D-01: Environment and database setup
+- D-02: Test reset helper and database test hooks
+- D-04: US-02 test file
+- D-05: US-03 test file
+- D-08: US-06 test file
+- D-11: US-02 unit service
+- D-12: US-03 stage service
+- D-13: Refactor and regression
+- D-14: Team 1 interface agreement
+
+Checkers:
+- Mysha checks D-01, D-02, D-04, D-08, D-13
+- Fuad checks D-05, D-11, D-12
+- Team 1 (Trivex) checks D-14
+
+Mysha
+Owner:
+- D-03: US-01 test file
+- D-06: US-04 test file
+- D-10: Red-run evidence and red commit
+- D-16: API notes
+
+Checkers:
+- Fuad checks D-03
+- Abir checks D-06 and D-16
+- Fuad checks D-10
+
+Fuad
+Owner:
+- D-07: US-05 test file
+- D-09: US-12 test file
+- D-15: Code review of Abir's commits
+
+Checkers:
+- Mysha checks D-07 and D-15
+- Abir checks D-09
+
+MODULE 5 REVIEW AND SUPERVISION
+
+Abir:
+- R-01: Requirements review
+- R-04: Findings log
+- R-05: Coordination with Team 5
+- S-01 and S-02: Team 1 supervision
+- R-06: Sprint review record
+
+Mysha:
+- R-03: Metrics review
+
+Fuad:
+- R-02: Acceptance review
+
+REVIEW ACKNOWLEDGEMENT
+
+Abir — reviewed by: ____________________
+Date: _________________________________
+Notes: ________________________________
+
+Mysha — reviewed by: ___________________
+Date: _________________________________
+Notes: ________________________________
+
+Fuad — reviewed by: ____________________
+Date: _________________________________
+Notes: ________________________________
+
+RULES
+- A person must not check their own work.
+- Each member must confirm their own review and acknowledgement.
+- Blank acknowledgements mean review/sign-off is not yet confirmed.
+- Task ownership does not by itself mean the task is complete.
+
+REVIEW TASK CHECKERS
+
+- R-01 Requirements review: Abir; checked by Mysha
+- R-02 Acceptance review: Fuad; checked by Mysha
+- R-03 Metrics review: Mysha; checked by Fuad
+- R-04 Findings log: Abir; checked by Fuad
+- R-05 Coordination with Team 5: Abir; checked by Fuad
+
+STATUS NOTE
+- Ownership assignments document responsibility, not completion.
+- Team 1 supervision, Team 5 confirmation, and review sign-offs
+  must remain pending until supporting evidence is available.
+- Database evidence currently records 61 passed and 0 failed tests
+  (M2TC-026 to M2TC-086); the workbook target lists 51 tests
+  (M2TC-026 to M2TC-076). This discrepancy requires reconciliation.
