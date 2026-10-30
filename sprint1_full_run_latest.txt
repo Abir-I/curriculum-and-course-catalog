@@ -1,0 +1,39 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 841[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 1076[2mms[22m[39m
+   [33m[2m✓[22m[39m US-02 Create the academic structure[2m > [22mM2TC-006: a PROGRAM must have a term pattern; other unit types must not [33m355[2mms[22m[39m
+ [31m❯[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m tests/us05_course_search.test.js [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m tests/us01_institution_type.test.js [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m tests/us06_course_update.test.js [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m tests/us04_courses.test.js [2m([22m[2m0 test[22m[2m)[22m
+
+[31m⎯⎯⎯⎯⎯⎯[1m[7m Failed Suites 5 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us01_institution_type.test.js[2m [ tests/us01_institution_type.test.js ][22m
+[31m[1mError[22m: Failed to load url ../src/policy/policy.service.js (resolved id: ../src/policy/policy.service.js) in E:/module2-sprint1/tests/us01_institution_type.test.js. Does the file exist?[39m
+[90m [2m❯[22m loadAndTransform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:[2m51969:17[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us04_courses.test.js[2m [ tests/us04_courses.test.js ][22m
+[31m[1m[7m FAIL [27m[22m[39m tests/us05_course_search.test.js[2m [ tests/us05_course_search.test.js ][22m
+[31m[1m[7m FAIL [27m[22m[39m tests/us06_course_update.test.js[2m [ tests/us06_course_update.test.js ][22m
+[31m[1mError[22m: Failed to load url ../src/catalog/course.service.js (resolved id: ../src/catalog/course.service.js) in E:/module2-sprint1/tests/us05_course_search.test.js. Does the file exist?[39m
+[90m [2m❯[22m loadAndTransform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:[2m51969:17[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us12_room_teacher_clash.test.js[2m [ tests/us12_room_teacher_clash.test.js ][22m
+[31m[1mError[22m: Failed to load url ../src/scheduling/scheduling.service.js (resolved id: ../src/scheduling/scheduling.service.js) in E:/module2-sprint1/tests/us12_room_teacher_clash.test.js. Does the file exist?[39m
+[90m [2m❯[22m loadAndTransform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:[2m51969:17[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯[22m[39m
+
+[2m Test Files [22m [1m[31m5 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (7)[39m
+[2m      Tests [22m [1m[32m9 passed[39m[22m[90m (9)[39m
+[2m   Start at [22m 16:35:56
+[2m   Duration [22m 3.82s[2m (transform 67ms, setup 286ms, collect 30ms, tests 1.92s, environment 1ms, prepare 500ms)[22m
+
