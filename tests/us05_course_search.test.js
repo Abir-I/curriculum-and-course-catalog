@@ -1,12 +1,12 @@
 // M2TC-017 to M2TC-020
 // US-05: Find a course quickly (FR-11)
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { createCourse } from "../src/catalog/course.service.js";
 import { searchCourses } from "../src/catalog/course-search.service.js";
 
 const REGISTRAR = { id: 11, roles: ["REGISTRAR"] };
 
-beforeAll(async () => {
+beforeEach(async () => {   // setup.js resets the database before each test, so seed here
   await createCourse({ code: "CSE101", titleEn: "Intro to Programming", titleBn: "প্রোগ্রামিং পরিচিতি",
     theoryCredit: 3 }, REGISTRAR);
   for (let i = 0; i < 250; i++) {

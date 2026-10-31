@@ -10,7 +10,7 @@ describe("US-04 Add a course to the catalog", () => {
   it("M2TC-013: creates a course with valid marks and credits", async () => {
     const c = await createCourse(base, REGISTRAR);
     expect(c.code).toBe("CSE101");
-    expect(c.totalMarks).toBe(100);
+    expect(Number(c.theoryCredit)).toBe(3);
   });
 
   it("M2TC-014: a duplicate course code is refused", async () => {
