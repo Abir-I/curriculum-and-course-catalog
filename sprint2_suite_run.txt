@@ -1,0 +1,74 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 4078[2mms[22m[39m
+   [33m[2m✓[22m[39m State transitions: curriculum lifecycle[2m > [22mM2TC-131: DRAFT to UNDER_REVIEW is allowed [33m1038[2mms[22m[39m
+   [33m[2m✓[22m[39m State transitions: curriculum lifecycle[2m > [22mM2TC-132: DRAFT straight to PUBLISHED is refused (INVALID_TRANSITION) - a skipped state [33m721[2mms[22m[39m
+   [33m[2m✓[22m[39m State transitions: curriculum lifecycle[2m > [22mM2TC-133: a PUBLISHED version cannot go back to DRAFT (PUBLISHED_IMMUTABLE) [33m938[2mms[22m[39m
+   [33m[2m✓[22m[39m Security[2m > [22mM2TC-134: SQL injection text in the search is treated as plain text; the table survives [33m850[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1195[2mms[22m[39m
+ [31m❯[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m3 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 565[2mms[22m[39m
+[31m   [31m×[31m US-07 Prerequisites[2m > [22mM2TC-099: a course cannot be its own prerequisite[90m 173[2mms[22m[31m[39m
+[31m     → setPrerequisite is not a function[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 1941[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 877[2mms[22m[39m
+   [33m[2m✓[22m[39m US-03 Set up stages and their order[2m > [22mM2TC-012: a stage in use is deactivated, not deleted (FR-06) [33m338[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 824[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 583[2mms[22m[39m
+ [31m❯[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 584[2mms[22m[39m
+[31m   [31m×[31m US-20 Audit log[2m > [22mM2TC-096: audit rows come back in time order[90m 211[2mms[22m[31m[39m
+[31m     → queryAudit is not a function[39m
+[31m   [31m×[31m US-20 Audit log[2m > [22mM2TC-097: secret fields are redacted when audit rows are read[90m 158[2mms[22m[31m[39m
+[31m     → queryAudit is not a function[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 563[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1210[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-017: finds a course by its code [33m335[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 716[2mms[22m[39m
+   [33m[2m✓[22m[39m US-01 Set the institution type[2m > [22mM2TC-001: stores SCHOOL, COLLEGE or UNIVERSITY as a policy with a start date [33m379[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 684[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 270[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 536[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[1m[7m Failed Tests 3 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us07_08_09_curriculum.test.js[2m > [22mUS-07 Prerequisites[2m > [22mM2TC-099: a course cannot be its own prerequisite
+[31m[1mTypeError[22m: setPrerequisite is not a function[39m
+[36m [2m❯[22m tests/us07_08_09_curriculum.test.js:[2m41:7[22m[39m
+    [90m 39| [39m    [35mconst[39m placed [33m=[39m [35mawait[39m [34mcreateVersionWithCourse[39m({ courseId[33m:[39m course[33m.[39mid…
+    [90m 40| [39m    [35mawait[39m [34mexpect[39m(
+    [90m 41| [39m      [34msetPrerequisite[39m(placed[33m.[39mitemId[33m,[39m { courseId[33m:[39m course[33m.[39mid }[33m,[39m [33mMANAGER[39m)
+    [90m   | [39m      [31m^[39m
+    [90m 42| [39m    )[33m.[39mrejects[33m.[39m[34mtoMatchObject[39m({ code[33m:[39m [32m"SELF_PREREQUISITE"[39m })[33m;[39m
+    [90m 43| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us20_audit.test.js[2m > [22mUS-20 Audit log[2m > [22mM2TC-096: audit rows come back in time order
+[31m[1mTypeError[22m: queryAudit is not a function[39m
+[36m [2m❯[22m tests/us20_audit.test.js:[2m29:24[22m[39m
+    [90m 27| [39m      [35mawait[39m [34mwait[39m([34m5[39m)[33m;[39m
+    [90m 28| [39m    }
+    [90m 29| [39m    [35mconst[39m rows [33m=[39m [35mawait[39m [34mqueryAudit[39m({ entityType[33m:[39m [32m"room"[39m[33m,[39m entityId })[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m 30| [39m    [34mexpect[39m(rows[33m.[39m[34mmap[39m((r) [33m=>[39m r[33m.[39maction))[33m.[39m[34mtoEqual[39m([[32m"CREATE"[39m[33m,[39m [32m"UPDATE"[39m[33m,[39m [32m"DE[39m…
+    [90m 31| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us20_audit.test.js[2m > [22mUS-20 Audit log[2m > [22mM2TC-097: secret fields are redacted when audit rows are read
+[31m[1mTypeError[22m: queryAudit is not a function[39m
+[36m [2m❯[22m tests/us20_audit.test.js:[2m42:24[22m[39m
+    [90m 40| [39m      details[33m:[39m { password[33m:[39m [32m"secret123"[39m[33m,[39m token[33m:[39m [32m"abc"[39m[33m,[39m note[33m:[39m [32m"kept"[39m }[33m,[39m
+    [90m 41| [39m    })[33m;[39m
+    [90m 42| [39m    [35mconst[39m rows [33m=[39m [35mawait[39m [34mqueryAudit[39m({ entityType[33m:[39m [32m"user"[39m[33m,[39m entityId })[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m 43| [39m    [34mexpect[39m(rows[[34m0[39m][33m.[39mdetails[33m.[39mpassword)[33m.[39m[34mtoBe[39m([32m"[REDACTED]"[39m)[33m;[39m
+    [90m 44| [39m    [34mexpect[39m(rows[[34m0[39m][33m.[39mdetails[33m.[39mtoken)[33m.[39m[34mtoBe[39m([32m"[REDACTED]"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯[22m[39m
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m12 passed[39m[22m[90m (14)[39m
+[2m      Tests [22m [1m[31m3 failed[39m[22m[2m | [22m[1m[32m59 passed[39m[22m[90m (62)[39m
+[2m   Start at [22m 22:31:59
+[2m   Duration [22m 18.06s[2m (transform 73ms, setup 475ms, collect 160ms, tests 14.63s, environment 2ms, prepare 811ms)[22m
+
