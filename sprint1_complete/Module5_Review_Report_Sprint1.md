@@ -12,8 +12,8 @@
 
 The Sprint 1 workbook identifies the following review areas:
 
-- Functional requirements: FR-01 to FR-10
-- Non-functional requirements: NFR-01 to NFR-08
+- Functional requirements: M5-FR-01 to M5-FR-10
+- Non-functional requirements: M5-NFR-01 to M5-NFR-08
 - User stories: US-01 to US-10
 - Acceptance criteria and measurability of SQAP targets
 
@@ -27,8 +27,8 @@ Checker: Mysha
 Review status: Pending evidence of completed review.
 
 Items to verify against Team 5's baseline:
-- [ ] FR-01 to FR-10
-- [ ] NFR-01 to NFR-08
+- [ ] M5-FR-01 to M5-FR-10
+- [ ] M5-NFR-01 to M5-NFR-08
 - [ ] US-01 to US-10
 - [ ] Acceptance criteria
 - [ ] Measurability of SQAP targets
