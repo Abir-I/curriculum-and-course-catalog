@@ -1,7 +1,37 @@
 import { prisma } from "../core/prisma.js";
-import { DEV_ACTOR_UUID } from "../core/auth.js";
+import { DEV_ACTOR_UUID, actorUuid } from "../core/auth.js";
+import { coded, mapDbError } from "../core/errors.js";
 
 const APPROVER_UUID = "00000000-0000-4000-8000-000000000082";
+
+// Creates the next version of a degree plan (Sprint 2, US-09).
+// The database trigger sets version_code (for example 1001-v2) and refuses
+// a cohort range that overlaps another version of the same program (COHORT_OVERLAP).
+export async function createVersion(planId, { cohortStartYear, cohortEndYear }, actor) {
+  const plan = await prisma.degreePlan.findUnique({ where: { id: planId } });
+  if (!plan) throw coded("PLAN_NOT_FOUND", 404);
+
+  const last = await prisma.curriculum.aggregate({
+    where: { degreePlanId: planId },
+    _max: { versionNo: true },
+  });
+  const versionNo = (last._max.versionNo ?? 0) + 1;
+
+  try {
+    return await prisma.curriculum.create({
+      data: {
+        programId: plan.programId,
+        degreePlanId: planId,
+        versionNo,
+        cohortStartYear,
+        cohortEndYear,
+        preparedBy: actorUuid(actor),
+      },
+    });
+  } catch (err) {
+    throw mapDbError(err);
+  }
+}
 
 // Test helper: creates a program, a degree plan and one version,
 // places the course while DRAFT, then publishes if requested.
