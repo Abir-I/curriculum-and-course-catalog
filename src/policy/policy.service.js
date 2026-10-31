@@ -46,3 +46,19 @@ export async function setInstitutionType(input, actor) {
     throw mapDbError(err);
   }
 }
+
+// Returns the value of the most specific policy valid on the date:
+// a row for this unit beats an institution row (scope NULL). No row gives null.
+export async function resolvePolicy(key, unitId, date) {
+  const d = new Date(date);
+  const rows = await prisma.academicPolicy.findMany({
+    where: {
+      policyKey: key,
+      effectiveFrom: { lte: d },
+      OR: [{ effectiveTo: null }, { effectiveTo: { gte: d } }],
+    },
+  });
+  const scoped = rows.find((r) => unitId && r.scopeUnitId === unitId);
+  const institution = rows.find((r) => r.scopeUnitId === null);
+  return (scoped ?? institution)?.value ?? null;
+}

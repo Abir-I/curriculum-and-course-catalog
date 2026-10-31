@@ -1,0 +1,31 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 1168[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1214[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1138[2mms[22m[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2059[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 727[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 1074[2mms[22m[39m
+   [33m[2m✓[22m[39m US-02 Create the academic structure[2m > [22mM2TC-008: a Bangla name is stored and returned with the English name [33m330[2mms[22m[39m
+ [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 815[2mms[22m[39m
+   [33m[2m✓[22m[39m Policy resolution[2m > [22mM2TC-109b: a program with no policy of its own gets the institution policy [33m310[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 573[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 588[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 591[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1299[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-017: finds a course by its code [33m335[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-019: results are paged, at most 20 per page by default, with the total count [33m304[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-020: page size above 100 is refused [33m350[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 602[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 757[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[33m 313[2mms[22m[39m
+   [33m[2m✓[22m[39m Concurrency: room race[2m > [22mM2TC-138: two simultaneous bookings of one room slot: exactly one succeeds, the other is ROOM_CLASH [33m300[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 597[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 225[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m16 passed[39m[22m[90m (16)[39m
+[2m      Tests [22m [1m[32m69 passed[39m[22m[90m (69)[39m
+[2m   Start at [22m 02:51:42
+[2m   Duration [22m 17.83s[2m (transform 93ms, setup 571ms, collect 203ms, tests 13.74s, environment 2ms, prepare 911ms)[22m
+
