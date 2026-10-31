@@ -1,0 +1,79 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [31m❯[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[33m 3229[2mms[22m[39m
+   [33m[2m✓[22m[39m US-09 Curriculum versions[2m > [22mM2TC-093: the second version of a plan gets code 1001-v2 [33m904[2mms[22m[39m
+   [33m[2m✓[22m[39m US-09 Curriculum versions[2m > [22mM2TC-094: a version with an overlapping cohort range is refused (COHORT_OVERLAP) [33m897[2mms[22m[39m
+[31m   [31m×[31m US-07 Prerequisites[2m > [22mM2TC-090: the same course in two programs keeps separate prerequisites[33m 878[2mms[22m[31m[39m
+[31m     → addCourseToVersion is not a function[39m
+[31m   [31m×[31m US-07 Prerequisites[2m > [22mM2TC-099: a course cannot be its own prerequisite[90m 190[2mms[22m[31m[39m
+[31m     → addCourseToVersion is not a function[39m
+[31m   [31m×[31m US-08 Groups[2m > [22mM2TC-091: a group is saved with its type, and an unknown type is refused[90m 174[2mms[22m[31m[39m
+[31m     → createGroup is not a function[39m
+[31m   [31m×[31m US-08 Groups[2m > [22mM2TC-092: a course can be placed inside a group[90m 175[2mms[22m[31m[39m
+[31m     → createGroup is not a function[39m
+ [31m❯[39m tests/offerings.test.js [2m([22m[2m0 test[22m[2m)[22m
+
+[31m⎯⎯⎯⎯⎯⎯[1m[7m Failed Suites 1 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/offerings.test.js[2m [ tests/offerings.test.js ][22m
+[31m[1mError[22m: Failed to load url ../src/structure/term.service.js (resolved id: ../src/structure/term.service.js) in E:/module2-sprint1/tests/offerings.test.js. Does the file exist?[39m
+[90m [2m❯[22m loadAndTransform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:[2m51969:17[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[1m[7m Failed Tests 4 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us07_08_09_curriculum.test.js[2m > [22mUS-07 Prerequisites[2m > [22mM2TC-090: the same course in two programs keeps separate prerequisites
+[31m[1mTypeError[22m: addCourseToVersion is not a function[39m
+[36m [2m❯[22m tests/us07_08_09_curriculum.test.js:[2m55:27[22m[39m
+    [90m 53| [39m    [35mconst[39m cse [33m=[39m [35mawait[39m [34mmakeVersion[39m([32m"2001"[39m)[33m;[39m
+    [90m 54| [39m    [35mconst[39m bba [33m=[39m [35mawait[39m [34mmakeVersion[39m([32m"2002"[39m)[33m;[39m
+    [90m 55| [39m    [35mconst[39m itemCse [33m=[39m [35mawait[39m [34maddCourseToVersion[39m(cse[33m.[39mid[33m,[39m course[33m.[39mid[33m,[39m [33mMANAGE[39m…
+    [90m   | [39m                          [31m^[39m
+    [90m 56| [39m    [35mconst[39m itemBba [33m=[39m [35mawait[39m [34maddCourseToVersion[39m(bba[33m.[39mid[33m,[39m course[33m.[39mid[33m,[39m [33mMANAGE[39m…
+    [90m 57| [39m    [35mawait[39m [34msetPrerequisite[39m(itemCse[33m.[39mid[33m,[39m prereq[33m.[39mid[33m,[39m [33mMANAGER[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us07_08_09_curriculum.test.js[2m > [22mUS-07 Prerequisites[2m > [22mM2TC-099: a course cannot be its own prerequisite
+[31m[1mTypeError[22m: addCourseToVersion is not a function[39m
+[36m [2m❯[22m tests/us07_08_09_curriculum.test.js:[2m65:24[22m[39m
+    [90m 63| [39m    [35mconst[39m course [33m=[39m [35mawait[39m [34mcreateCourse[39m({ code[33m:[39m [32m"CSE302"[39m[33m,[39m titleEn[33m:[39m [32m"Comp[39m…
+    [90m 64| [39m    [35mconst[39m version [33m=[39m [35mawait[39m [34mmakeVersion[39m([32m"2003"[39m)[33m;[39m
+    [90m 65| [39m    [35mconst[39m item [33m=[39m [35mawait[39m [34maddCourseToVersion[39m(version[33m.[39mid[33m,[39m course[33m.[39mid[33m,[39m [33mMANAG[39m…
+    [90m   | [39m                       [31m^[39m
+    [90m 66| [39m    [35mawait[39m [34mexpect[39m(
+    [90m 67| [39m      [34msetPrerequisite[39m(item[33m.[39mid[33m,[39m course[33m.[39mid[33m,[39m [33mMANAGER[39m)
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us07_08_09_curriculum.test.js[2m > [22mUS-08 Groups[2m > [22mM2TC-091: a group is saved with its type, and an unknown type is refused
+[31m[1mTypeError[22m: createGroup is not a function[39m
+[36m [2m❯[22m tests/us07_08_09_curriculum.test.js:[2m75:25[22m[39m
+    [90m 73| [39m  [34mit[39m([32m"M2TC-091: a group is saved with its type, and an unknown type is[39m…
+    [90m 74| [39m    [35mconst[39m version [33m=[39m [35mawait[39m [34mmakeVersion[39m([32m"3001"[39m)[33m;[39m
+    [90m 75| [39m    [35mconst[39m group [33m=[39m [35mawait[39m [34mcreateGroup[39m(version[33m.[39mid[33m,[39m { groupType[33m:[39m [32m"CHOOSE_N[39m…
+    [90m   | [39m                        [31m^[39m
+    [90m 76| [39m    [34mexpect[39m(group[33m.[39mitemType)[33m.[39m[34mtoBe[39m([32m"GROUP"[39m)[33m;[39m
+    [90m 77| [39m    [34mexpect[39m(group[33m.[39mgroupType)[33m.[39m[34mtoBe[39m([32m"CHOOSE_N"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us07_08_09_curriculum.test.js[2m > [22mUS-08 Groups[2m > [22mM2TC-092: a course can be placed inside a group
+[31m[1mTypeError[22m: createGroup is not a function[39m
+[36m [2m❯[22m tests/us07_08_09_curriculum.test.js:[2m86:25[22m[39m
+    [90m 84| [39m    [35mconst[39m course [33m=[39m [35mawait[39m [34mcreateCourse[39m({ code[33m:[39m [32m"CSE401"[39m[33m,[39m titleEn[33m:[39m [32m"AI"[39m[33m,[39m…
+    [90m 85| [39m    [35mconst[39m version [33m=[39m [35mawait[39m [34mmakeVersion[39m([32m"3002"[39m)[33m;[39m
+    [90m 86| [39m    [35mconst[39m group [33m=[39m [35mawait[39m [34mcreateGroup[39m(version[33m.[39mid[33m,[39m { groupType[33m:[39m [32m"ELECTIVE[39m…
+    [90m   | [39m                        [31m^[39m
+    [90m 87| [39m    [35mconst[39m item [33m=[39m [35mawait[39m [34maddCourseToVersion[39m(version[33m.[39mid[33m,[39m course[33m.[39mid[33m,[39m [33mMANAG[39m…
+    [90m 88| [39m    [35mconst[39m saved [33m=[39m [35mawait[39m prisma[33m.[39mcurriculumItem[33m.[39m[34mfindUnique[39m({ where[33m:[39m { id…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯[22m[39m
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (6)[39m
+[2m   Start at [22m 02:24:30
+[2m   Duration [22m 3.82s[2m (transform 46ms, setup 90ms, collect 40ms, tests 3.23s, environment 0ms, prepare 117ms)[22m
+
