@@ -1,8 +1,12 @@
 import { coded } from "./errors.js";
 
-const DEV_ACTOR_UUID = "00000000-0000-4000-8000-000000000010";
+export const DEV_ACTOR_UUID = "00000000-0000-4000-8000-000000000010";
 
 export function requireRole(actor, role) {
+  if (!actor?.id) {
+    throw coded("UNAUTHENTICATED", 401);
+  }
+
   if (!actor?.roles?.includes(role)) {
     throw coded("FORBIDDEN", 403);
   }

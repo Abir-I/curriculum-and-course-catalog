@@ -19,11 +19,14 @@ const DB_CODES = [
   "AUDIT_APPEND_ONLY", "DEGREE_PLAN_REQUIRED", "PLAN_OTHER_PROGRAM", "PLAN_CODE_FIXED",
 ];
 
+// Clashes are conflicts (409); other database rule violations are 422.
+const DB_STATUS = { ROOM_CLASH: 409, INSTRUCTOR_CLASH: 409 };
+
 export function mapDbError(err) {
   // Errors raised with RAISE EXCEPTION carry the code in the message.
   const text = `${err?.message ?? ""} ${err?.meta?.message ?? ""}`;
   const hit = DB_CODES.find((c) => text.includes(c));
-  if (hit) return coded(hit, 422);
+  if (hit) return coded(hit, DB_STATUS[hit] ?? 422);
 
   // Unique violations come from Prisma as P2002. meta.target lists the columns.
   if (err?.code === "P2002") {
