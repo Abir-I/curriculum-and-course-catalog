@@ -33,6 +33,58 @@ export async function createVersion(planId, { cohortStartYear, cohortEndYear }, 
   }
 }
 
+const GROUP_TYPES = ["CORE", "ELECTIVE", "GENERAL_EDUCATION", "CHOOSE_N", "CHOOSE_ONE", "CONDITIONAL", "TRACK"];
+
+// Places a course in a version. parentGroupId puts it inside a group (US-07, US-08).
+export async function addCourseToVersion(versionId, courseId, actor, { parentGroupId = null } = {}) {
+  try {
+    return await prisma.curriculumItem.create({
+      data: { curriculumId: versionId, itemType: "COURSE", courseId, parentItemId: parentGroupId },
+    });
+  } catch (err) {
+    throw mapDbError(err);
+  }
+}
+
+// Creates a group inside a version (US-08).
+export async function createGroup(versionId, { groupType, minCredits = null, minCourses = null }, actor) {
+  if (!GROUP_TYPES.includes(groupType)) throw coded("INVALID_GROUP_TYPE", 422);
+  try {
+    return await prisma.curriculumItem.create({
+      data: { curriculumId: versionId, itemType: "GROUP", groupType, minCredits, minCourses },
+    });
+  } catch (err) {
+    throw mapDbError(err);
+  }
+}
+
+// Stores the prerequisite of one course placement (US-07).
+// The database refuses a self link, a cycle and a second root.
+export async function setPrerequisite(itemId, requiredCourseId, actor, { minGrade = null } = {}) {
+  const existing = await prisma.prerequisiteRule.count({
+    where: { curriculumItemId: itemId, parentNodeId: null },
+  });
+  try {
+    return await prisma.prerequisiteRule.create({
+      data: {
+        curriculumItemId: itemId,
+        ruleKind: "PREREQUISITE",
+        nodeType: "COURSE",
+        courseId: requiredCourseId,
+        minGrade,
+        parentNodeId: null,
+        sortOrder: existing,
+      },
+    });
+  } catch (err) {
+    throw mapDbError(err);
+  }
+}
+
+export async function listRequirements(itemId) {
+  return prisma.prerequisiteRule.findMany({ where: { curriculumItemId: itemId } });
+}
+
 // Test helper: creates a program, a degree plan and one version,
 // places the course while DRAFT, then publishes if requested.
 export async function placeCourseInVersion({ courseId, status = "DRAFT" }) {

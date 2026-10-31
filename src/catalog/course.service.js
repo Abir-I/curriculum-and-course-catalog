@@ -124,3 +124,8 @@ export async function updateCourse(courseId, input, actor) {
   }
 }
 
+
+// A deactivated course stays in the catalog but cannot be offered (FR-10).
+export async function deactivateCourse(id, actor) {
+  return prisma.course.update({ where: { id }, data: { status: "INACTIVE" } });
+}
