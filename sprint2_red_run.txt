@@ -1,0 +1,51 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [31m❯[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 676[2mms[22m[39m
+[31m   [31m×[31m US-20 Audit log[2m > [22mM2TC-096: audit rows come back in time order[90m 210[2mms[22m[31m[39m
+[31m     → queryAudit is not a function[39m
+[31m   [31m×[31m US-20 Audit log[2m > [22mM2TC-097: secret fields are redacted when audit rows are read[90m 157[2mms[22m[31m[39m
+[31m     → queryAudit is not a function[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 656[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 557[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[1m[7m Failed Suites 1 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us07_08_09_curriculum.test.js[2m [ tests/us07_08_09_curriculum.test.js ][22m
+[31m[1mError[22m: Failed to load url ../src/curriculum/degree-plan.service.js (resolved id: ../src/curriculum/degree-plan.service.js) in E:/module2-sprint1/tests/us07_08_09_curriculum.test.js. Does the file exist?[39m
+[90m [2m❯[22m loadAndTransform node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:[2m51969:17[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[1m[7m Failed Tests 2 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us20_audit.test.js[2m > [22mUS-20 Audit log[2m > [22mM2TC-096: audit rows come back in time order
+[31m[1mTypeError[22m: queryAudit is not a function[39m
+[36m [2m❯[22m tests/us20_audit.test.js:[2m29:24[22m[39m
+    [90m 27| [39m      [35mawait[39m [34mwait[39m([34m5[39m)[33m;[39m
+    [90m 28| [39m    }
+    [90m 29| [39m    [35mconst[39m rows [33m=[39m [35mawait[39m [34mqueryAudit[39m({ entityType[33m:[39m [32m"room"[39m[33m,[39m entityId })[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m 30| [39m    [34mexpect[39m(rows[33m.[39m[34mmap[39m((r) [33m=>[39m r[33m.[39maction))[33m.[39m[34mtoEqual[39m([[32m"CREATE"[39m[33m,[39m [32m"UPDATE"[39m[33m,[39m [32m"DE[39m…
+    [90m 31| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/us20_audit.test.js[2m > [22mUS-20 Audit log[2m > [22mM2TC-097: secret fields are redacted when audit rows are read
+[31m[1mTypeError[22m: queryAudit is not a function[39m
+[36m [2m❯[22m tests/us20_audit.test.js:[2m42:24[22m[39m
+    [90m 40| [39m      details[33m:[39m { password[33m:[39m [32m"secret123"[39m[33m,[39m token[33m:[39m [32m"abc"[39m[33m,[39m note[33m:[39m [32m"kept"[39m }[33m,[39m
+    [90m 41| [39m    })[33m;[39m
+    [90m 42| [39m    [35mconst[39m rows [33m=[39m [35mawait[39m [34mqueryAudit[39m({ entityType[33m:[39m [32m"user"[39m[33m,[39m entityId })[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m 43| [39m    [34mexpect[39m(rows[[34m0[39m][33m.[39mdetails[33m.[39mpassword)[33m.[39m[34mtoBe[39m([32m"[REDACTED]"[39m)[33m;[39m
+    [90m 44| [39m    [34mexpect[39m(rows[[34m0[39m][33m.[39mdetails[33m.[39mtoken)[33m.[39m[34mtoBe[39m([32m"[REDACTED]"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯[22m[39m
+
+[2m Test Files [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m7 passed[39m[22m[90m (9)[39m
+[2m   Start at [22m 22:11:47
+[2m   Duration [22m 3.03s[2m (transform 59ms, setup 190ms, collect 49ms, tests 1.89s, environment 1ms, prepare 259ms)[22m
+

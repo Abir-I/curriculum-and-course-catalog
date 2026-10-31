@@ -1,4 +1,4 @@
-// M2TC-021 to M2TC-022
+// M2TC-021 to M2TC-022, M2TC-098
 // US-06: Change a course without changing old records (FR-09)
 import { describe, it, expect } from "vitest";
 import { createCourse, updateCourse } from "../src/catalog/course.service.js";
@@ -23,4 +23,10 @@ describe("US-06 Change a course without changing old records", () => {
     expect(item.copiedCredits).toBe(4);
   });
 
+  it("M2TC-098: a negative credit on update is refused (422)", async () => {
+    const course = await createCourse({ code: "CSE203", titleEn: "Databases", theoryCredit: 3 }, REGISTRAR);
+    await expect(
+      updateCourse(course.id, { theoryCredit: -1 }, REGISTRAR)
+    ).rejects.toMatchObject({ code: "NEGATIVE_CREDIT", status: 422 });
+  });
 });
