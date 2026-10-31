@@ -1,0 +1,29 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 1233[2mms[22m[39m
+   [33m[2m✓[22m[39m US-09 Curriculum versions[2m > [22mM2TC-093: the second version of a plan gets code 1001-v2 [33m320[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1219[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1279[2mms[22m[39m
+   [33m[2m✓[22m[39m Boundary: course credits (NUMERIC(4,2), must be above zero in total)[2m > [22mM2TC-124: theory 99.99 is accepted - upper boundary of NUMERIC(4,2) [33m309[2mms[22m[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2027[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 786[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 851[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 753[2mms[22m[39m
+   [33m[2m✓[22m[39m US-12 Room and teacher clashes[2m > [22mM2TC-023: a room already booked at an overlapping time is refused (409) [33m367[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 588[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 573[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1224[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-017: finds a course by its code [33m330[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 514[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 695[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[33m 347[2mms[22m[39m
+   [33m[2m✓[22m[39m Concurrency: room race[2m > [22mM2TC-138: two simultaneous bookings of one room slot: exactly one succeeds, the other is ROOM_CLASH [33m327[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 544[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 217[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m15 passed[39m[22m[90m (15)[39m
+[2m      Tests [22m [1m[32m66 passed[39m[22m[90m (66)[39m
+[2m   Start at [22m 02:43:20
+[2m   Duration [22m 16.79s[2m (transform 106ms, setup 558ms, collect 191ms, tests 12.85s, environment 2ms, prepare 911ms)[22m
+
