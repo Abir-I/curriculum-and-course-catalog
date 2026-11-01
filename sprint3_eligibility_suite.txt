@@ -1,0 +1,33 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 1166[2mms[22m[39m
+ [32m✓[39m tests/eligibility.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 795[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 4527[2mms[22m[39m
+   [33m[2m✓[22m[39m State transitions: curriculum lifecycle[2m > [22mM2TC-132: DRAFT straight to PUBLISHED is refused (INVALID_TRANSITION) - a skipped state [33m1837[2mms[22m[39m
+   [33m[2m✓[22m[39m State transitions: curriculum lifecycle[2m > [22mM2TC-133: a PUBLISHED version cannot go back to DRAFT (PUBLISHED_IMMUTABLE) [33m621[2mms[22m[39m
+   [33m[2m✓[22m[39m Security[2m > [22mM2TC-134: SQL injection text in the search is treated as plain text; the table survives [33m1004[2mms[22m[39m
+   [33m[2m✓[22m[39m Security[2m > [22mM2TC-135: a request with no login is refused with 401 (UNAUTHENTICATED), not 403 [33m525[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1183[2mms[22m[39m
+ [32m✓[39m tests/sections.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 967[2mms[22m[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2031[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 712[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 844[2mms[22m[39m
+ [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 690[2mms[22m[39m
+   [33m[2m✓[22m[39m Policy resolution[2m > [22mM2TC-109c: a date before any policy starts gives null [33m311[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 595[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 580[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 683[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1242[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-017: finds a course by its code [33m350[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 526[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 809[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 275[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 527[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 220[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+[2m      Tests [22m [1m[32m77 passed[39m[22m[90m (77)[39m
+[2m   Start at [22m 21:59:01
+[2m   Duration [22m 23.08s[2m (transform 120ms, setup 639ms, collect 266ms, tests 18.37s, environment 2ms, prepare 1.03s)[22m
+
