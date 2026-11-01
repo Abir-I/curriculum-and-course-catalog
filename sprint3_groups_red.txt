@@ -1,0 +1,40 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
+
+ [31m❯[39m tests/groups.test.js [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 502[2mms[22m[39m
+[31m   [31m×[31m Group completion before review[2m > [22mM2TC-112a: a group that needs 2 courses but holds 1 blocks the review (422)[33m 306[2mms[22m[31m[39m
+[31m     → submitForReview is not a function[39m
+[31m   [31m×[31m Group completion before review[2m > [22mM2TC-112b: a group that holds enough courses lets the version go to review[90m 187[2mms[22m[31m[39m
+[31m     → submitForReview is not a function[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[1m[7m Failed Tests 2 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/groups.test.js[2m > [22mGroup completion before review[2m > [22mM2TC-112a: a group that needs 2 courses but holds 1 blocks the review (422)
+[31m[1mTypeError[22m: submitForReview is not a function[39m
+[36m [2m❯[22m tests/groups.test.js:[2m36:18[22m[39m
+    [90m 34| [39m    [35mconst[39m { version[33m,[39m group } [33m=[39m [35mawait[39m [34mversionWithGroup[39m([32m"5001"[39m)[33m;[39m
+    [90m 35| [39m    [35mawait[39m [34mplaceInGroup[39m(version[33m,[39m group[33m,[39m [32m"ELE101"[39m)[33m;[39m
+    [90m 36| [39m    [35mawait[39m [34mexpect[39m([34msubmitForReview[39m(version[33m.[39mid[33m,[39m [33mMANAGER[39m))[33m.[39mrejects[33m.[39m[34mtoMatch[39m…
+    [90m   | [39m                 [31m^[39m
+    [90m 37| [39m      code[33m:[39m [32m"GROUP_NOT_COMPLETABLE"[39m[33m,[39m
+    [90m 38| [39m      status[33m:[39m [34m422[39m[33m,[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m tests/groups.test.js[2m > [22mGroup completion before review[2m > [22mM2TC-112b: a group that holds enough courses lets the version go to review
+[31m[1mTypeError[22m: submitForReview is not a function[39m
+[36m [2m❯[22m tests/groups.test.js:[2m48:11[22m[39m
+    [90m 46| [39m    [35mawait[39m [34mplaceInGroup[39m(version[33m,[39m group[33m,[39m [32m"ELE201"[39m)[33m;[39m
+    [90m 47| [39m    [35mawait[39m [34mplaceInGroup[39m(version[33m,[39m group[33m,[39m [32m"ELE202"[39m)[33m;[39m
+    [90m 48| [39m    [35mawait[39m [34msubmitForReview[39m(version[33m.[39mid[33m,[39m [33mMANAGER[39m)[33m;[39m
+    [90m   | [39m          [31m^[39m
+    [90m 49| [39m    [35mconst[39m saved [33m=[39m [35mawait[39m prisma[33m.[39mcurriculum[33m.[39m[34mfindUnique[39m({ where[33m:[39m { id[33m:[39m ve…
+    [90m 50| [39m    [34mexpect[39m(saved[33m.[39mstatus)[33m.[39m[34mtoBe[39m([32m"UNDER_REVIEW"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[90m (2)[39m
+[2m   Start at [22m 22:09:35
+[2m   Duration [22m 880ms[2m (transform 50ms, setup 79ms, collect 38ms, tests 502ms, environment 0ms, prepare 85ms)[22m
+
