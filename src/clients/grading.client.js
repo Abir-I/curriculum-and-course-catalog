@@ -1,16 +1,10 @@
 // The real client calls Module 4 (Grading) through its API.
 // Tests replace it with fakeGrading() from tests/helpers/fakes.js.
-let impl = null;
+import { makeClientHolder } from "./client-holder.js";
 
-export function setGradingClient(c) {
-  impl = c;
-}
+const holder = makeClientHolder("Grading");
 
-function client() {
-  if (!impl) throw new Error("Grading client not configured");
-  return impl;
-}
-
-export const passedCourses = (studentId) => client().passedCourses(studentId);
-export const inProgressCourses = (studentId) => client().inProgressCourses(studentId);
-export const stageResults = (studentId, stageId) => client().stageResults(studentId, stageId);
+export const setGradingClient = holder.set;
+export const passedCourses = (studentId) => holder.get().passedCourses(studentId);
+export const inProgressCourses = (studentId) => holder.get().inProgressCourses(studentId);
+export const stageResults = (studentId, stageId) => holder.get().stageResults(studentId, stageId);

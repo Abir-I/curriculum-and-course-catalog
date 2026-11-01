@@ -1,15 +1,9 @@
 // Module 2 asks the Registration module (through its API) about seats and enrolments.
 // Tests replace the client with fakeRegistration() from tests/helpers/fakes.js.
-let impl = null;
+import { makeClientHolder } from "./client-holder.js";
 
-export function setRegistrationClient(client) {
-  impl = client;
-}
+const holder = makeClientHolder("Registration");
 
-function client() {
-  if (!impl) throw new Error("Registration client not configured");
-  return impl;
-}
-
-export const occupancy = (sectionId) => client().occupancy(sectionId);
-export const enrolmentStatus = (sectionId) => client().enrolmentStatus(sectionId);
+export const setRegistrationClient = holder.set;
+export const occupancy = (sectionId) => holder.get().occupancy(sectionId);
+export const enrolmentStatus = (sectionId) => holder.get().enrolmentStatus(sectionId);
