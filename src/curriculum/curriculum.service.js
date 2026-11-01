@@ -168,3 +168,20 @@ export async function getCurriculumItem(itemId) {
       Number(item.copiedLabCredit ?? 0),
   };
 }
+
+// A "choose N" or "choose one" group must hold enough courses before the version goes to review (FR-19).
+export async function submitForReview(versionId, actor) {
+  const groups = await prisma.curriculumItem.findMany({
+    where: { curriculumId: versionId, itemType: "GROUP" },
+  });
+  for (const g of groups) {
+    if (g.groupType === "CHOOSE_N" || g.groupType === "CHOOSE_ONE") {
+      const placed = await prisma.curriculumItem.count({
+        where: { parentItemId: g.id, itemType: "COURSE" },
+      });
+      const need = g.minCourses ?? (g.groupType === "CHOOSE_ONE" ? 1 : 0);
+      if (placed < need) throw coded("GROUP_NOT_COMPLETABLE", 422);
+    }
+  }
+  return prisma.curriculum.update({ where: { id: versionId }, data: { status: "UNDER_REVIEW" } });
+}
