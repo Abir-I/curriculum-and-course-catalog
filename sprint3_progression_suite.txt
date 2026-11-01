@@ -1,34 +1,34 @@
 
 [1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mE:/module2-sprint1[39m
 
- [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 1111[2mms[22m[39m
- [32m✓[39m tests/eligibility.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 786[2mms[22m[39m
- [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1289[2mms[22m[39m
- [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1217[2mms[22m[39m
- [32m✓[39m tests/progression.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 682[2mms[22m[39m
-   [33m[2m✓[22m[39m Progression[2m > [22mM2TC-110: a student who meets every rule is PROMOTED, with one reason per rule [33m335[2mms[22m[39m
- [32m✓[39m tests/sections.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 712[2mms[22m[39m
- [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2012[2mms[22m[39m
- [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 2967[2mms[22m[39m
-   [33m[2m✓[22m[39m US-03 Set up stages and their order[2m > [22mM2TC-010: a stage chain that would loop back is refused [33m636[2mms[22m[39m
-   [33m[2m✓[22m[39m US-03 Set up stages and their order[2m > [22mM2TC-011: a stage cannot be its own next stage [33m1417[2mms[22m[39m
-   [33m[2m✓[22m[39m US-03 Set up stages and their order[2m > [22mM2TC-012: a stage in use is deactivated, not deleted (FR-06) [33m681[2mms[22m[39m
- [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 1566[2mms[22m[39m
-   [33m[2m✓[22m[39m US-02 Create the academic structure[2m > [22mM2TC-004: a department can be created under a faculty [33m902[2mms[22m[39m
- [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 525[2mms[22m[39m
- [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 574[2mms[22m[39m
- [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 680[2mms[22m[39m
- [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 735[2mms[22m[39m
- [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1261[2mms[22m[39m
-   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-017: finds a course by its code [33m388[2mms[22m[39m
- [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 516[2mms[22m[39m
- [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 708[2mms[22m[39m
- [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 264[2mms[22m[39m
- [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 620[2mms[22m[39m
- [32m✓[39m tests/offerings.test.js [2m([22m[2m1 test[22m[2m)[22m[90m 216[2mms[22m[39m
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 1410[2mms[22m[39m
+   [33m[2m✓[22m[39m US-09 Curriculum versions[2m > [22mM2TC-093: the second version of a plan gets code 1001-v2 [33m439[2mms[22m[39m
+ [32m✓[39m tests/eligibility.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 798[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1322[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1259[2mms[22m[39m
+ [32m✓[39m tests/progression.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 570[2mms[22m[39m
+ [32m✓[39m tests/sections.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 762[2mms[22m[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2001[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 712[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 835[2mms[22m[39m
+ [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 544[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 571[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 586[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 566[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1624[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-017: finds a course by its code [33m329[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-019: results are paged, at most 20 per page by default, with the total count [33m549[2mms[22m[39m
+   [33m[2m✓[22m[39m US-05 Find a course quickly[2m > [22mM2TC-020: page size above 100 is refused [33m431[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 598[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 823[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[33m 432[2mms[22m[39m
+   [33m[2m✓[22m[39m Concurrency: room race[2m > [22mM2TC-138: two simultaneous bookings of one room slot: exactly one succeeds, the other is ROOM_CLASH [33m418[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 670[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m1 test[22m[2m)[22m[33m 329[2mms[22m[39m
+   [33m[2m✓[22m[39m Offerings[2m > [22mM2TC-105: a deactivated course cannot be offered in a term (422) [33m316[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m19 passed[39m[22m[90m (19)[39m
 [2m      Tests [22m [1m[32m80 passed[39m[22m[90m (80)[39m
-[2m   Start at [22m 22:04:59
-[2m   Duration [22m 23.30s[2m (transform 113ms, setup 659ms, collect 253ms, tests 18.44s, environment 2ms, prepare 1.10s)[22m
+[2m   Start at [22m 22:07:03
+[2m   Duration [22m 21.44s[2m (transform 135ms, setup 758ms, collect 282ms, tests 16.41s, environment 2ms, prepare 1.15s)[22m
 
