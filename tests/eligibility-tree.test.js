@@ -39,6 +39,12 @@ describe("M2D006: AND tree must stay rejected (Team 1, Critical)", () => {
     const r = await check({ studentId: "S-183", courseId });
     expect(r.result).toBe("NOT_ELIGIBLE");
   });
+  it("M2TC-183b: same AND with the prerequisite order reversed gives the same NOT_ELIGIBLE", async () => {
+    const courseId = await courseWithTree({ type: "AND", children: ["QA101", "QA100"] });
+    setGradingClient(fakeGrading({ passed: [], inProgress: [{ code: "QA101-" + n }] }));
+    const r = await check({ studentId: "S-183b", courseId });
+    expect(r.result).toBe("NOT_ELIGIBLE");
+  });
 });
 
 describe("M2D007: OR alternatives are not all required (Team 1, High)", () => {
