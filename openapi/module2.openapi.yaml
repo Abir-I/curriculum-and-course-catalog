@@ -1,0 +1,101 @@
+openapi: 3.0.3
+info:
+  title: Module 2 Curriculum and Course Catalog API
+  version: 0.5.0
+  description: REST API under /api/v1 (FR-49, NFR-18). Errors use the envelope {code, message, status}.
+servers:
+  - url: http://localhost:3000/api/v1
+security:
+  - devHeaders: []
+components:
+  securitySchemes:
+    devHeaders:
+      type: apiKey
+      in: header
+      name: x-user-id
+      description: Development only. Module 1 replaces this with token verification (NFR-01).
+  schemas:
+    Error:
+      type: object
+      required: [code, message, status]
+      properties:
+        code: { type: string, example: DUPLICATE_CODE }
+        message: { type: string }
+        status: { type: integer, example: 409 }
+    Course:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        code: { type: string }
+        titleEn: { type: string }
+        titleBn: { type: string, nullable: true }
+        theoryCredit: { type: number, format: float, maximum: 99.99 }
+        labCredit: { type: number, format: float, maximum: 99.99 }
+        status: { type: string, enum: [ACTIVE, INACTIVE] }
+    EligibilityResult:
+      type: object
+      required: [result, reasons, stored]
+      properties:
+        result: { type: string, enum: [ELIGIBLE, ELIGIBLE_IN_PROGRESS, NOT_ELIGIBLE, UNKNOWN] }
+        reasons: { type: array, items: { type: string } }
+        stored: { type: boolean, enum: [false] }
+paths:
+  /courses:
+    get:
+      summary: Search courses (FR-11, FR-50)
+      parameters:
+        - { name: query, in: query, schema: { type: string } }
+        - { name: page, in: query, schema: { type: integer, minimum: 1, default: 1 } }
+        - { name: size, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 20 } }
+      responses:
+        "200": { description: Page of courses }
+        "422": { description: PAGE_SIZE_TOO_LARGE or INVALID_PAGE }
+    post:
+      summary: Create a course (FR-07, FR-08; no marks, DV-02)
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: "#/components/schemas/Course" } } }
+      responses:
+        "201": { description: Created }
+        "401": { description: No actor }
+        "403": { description: Role not allowed }
+        "409": { description: DUPLICATE_CODE }
+        "422": { description: Rule violated, e.g. NEGATIVE_CREDIT, CODE_REQUIRED, MARKS_NOT_OWNED_BY_M2 }
+  /courses/{id}:
+    patch:
+      summary: Update a course (FR-09)
+      parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }]
+      responses:
+        "200": { description: Updated }
+        "422": { description: NEGATIVE_CREDIT and other rule violations }
+  /courses/{id}/deactivate:
+    post:
+      summary: Deactivate a course (FR-10); no delete
+      parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }]
+      responses:
+        "200": { description: Deactivated }
+  /rooms:
+    post:
+      summary: Create a room with capacity (FR-40)
+      responses:
+        "201": { description: Created }
+        "422": { description: Rule violated }
+  /eligibility:
+    get:
+      summary: Eligibility with reasons (FR-28, FR-31, FR-32)
+      parameters:
+        - { name: studentId, in: query, required: true, schema: { type: string } }
+        - { name: courseId, in: query, required: true, schema: { type: string, format: uuid } }
+        - { name: termId, in: query, required: true, schema: { type: string, format: uuid } }
+      responses:
+        "200": { description: Result; UNKNOWN is 200 }
+        "422": { description: A parameter is missing (names it) }
+  /audit:
+    get:
+      summary: Audit rows for an entity, admin only, time order (FR-48)
+      parameters:
+        - { name: entityType, in: query, required: true, schema: { type: string } }
+        - { name: entityId, in: query, required: true, schema: { type: string } }
+      responses:
+        "200": { description: Rows }
+        "403": { description: Not an administrator }
