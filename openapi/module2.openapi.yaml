@@ -60,7 +60,7 @@ paths:
         "401": { description: No actor }
         "403": { description: Role not allowed }
         "409": { description: DUPLICATE_CODE }
-        "422": { description: Rule violated, e.g. NEGATIVE_CREDIT, CODE_REQUIRED, MARKS_NOT_OWNED_BY_M2 }
+        "422": { description: "Rule violated, e.g. NEGATIVE_CREDIT, CODE_REQUIRED, MARKS_NOT_OWNED_BY_M2" }
   /courses/{id}:
     patch:
       summary: Update a course (FR-09)
