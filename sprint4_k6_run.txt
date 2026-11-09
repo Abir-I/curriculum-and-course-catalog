@@ -1,0 +1,54 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: load/eligibility.k6.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 50 iterations shared among 5 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<300' p(95)=5.5ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 100     2802.203653/s
+    checks_succeeded...: 100.00% 100 out of 100
+    checks_failed......: 0.00%   0 out of 100
+
+    ✓ status is 200
+    ✓ has result
+
+    HTTP
+    http_req_duration..............: avg=2.04ms min=507.9µs med=1.03ms max=7.85ms  p(90)=4.78ms p(95)=5.5ms 
+      { expected_response:true }...: avg=2.04ms min=507.9µs med=1.03ms max=7.85ms  p(90)=4.78ms p(95)=5.5ms 
+    http_req_failed................: 0.00% 0 out of 50
+    http_reqs......................: 50    1401.101826/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.52ms min=507.9µs med=1.03ms max=20.45ms p(90)=6.51ms p(95)=18.9ms
+    iterations.....................: 50    1401.101826/s
+
+    NETWORK
+    data_received..................: 16 kB 437 kB/s
+    data_sent......................: 11 kB 317 kB/s
+
+
+
+
+running (00m00.0s), 0/5 VUs, 50 complete and 0 interrupted iterations
+default ✓ [ 100% ] 5 VUs  00m00.0s/10m0s  50/50 shared iters
