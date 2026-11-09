@@ -14,6 +14,7 @@ import {
 import { setGradingClient } from "../src/clients/grading.client.js";
 import { check } from "../src/eligibility/eligibility.service.js";
 import { seedProgram } from "./helpers/seed.js";
+import { resetDatabase } from "./helpers/db.js";
 import { fakeGrading } from "./helpers/fakes.js";
 
 const MANAGER = { id: 13, roles: ["CURRICULUM_MANAGER"] };
@@ -79,11 +80,13 @@ describe("Eligibility check", () => {
     expect(below.result).toBe("NOT_ELIGIBLE");
     expect(below.reasons.join(" ")).toMatch(/below the minimum C/);
 
+    await resetDatabase();
     const ok = await courseWithPrerequisite("C");
     setGradingClient(fakeGrading({ passed: [{ code: "CSE101", grade: "B" }] }));
     const enough = await check({ studentId: "S-177b", courseId: ok.courseId });
     expect(enough.result).toBe("ELIGIBLE");
 
+    await resetDatabase();
     const odd = await courseWithPrerequisite("C");
     setGradingClient(fakeGrading({ passed: [{ code: "CSE101", grade: "??" }] }));
     const unknown = await check({ studentId: "S-177c", courseId: odd.courseId });
