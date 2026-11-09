@@ -1,1 +1,63 @@
-Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+M2TC-026  PASS  Department can be created under a faculty  -> accepted
+M2TC-027  PASS  Stream without a program parent is refused (PARENT_REQUIRED)  -> PARENT_REQUIRED
+M2TC-028  PASS  Program without a term pattern is refused  -> new row for relation "academic_units" violates check constraint "chk_unit_term_pattern"
+M2TC-029  PASS  A unit cannot be its own parent (refused with UNIT_LOOP)  -> UNIT_LOOP
+M2TC-030  PASS  A unit loop is refused (UNIT_LOOP)  -> UNIT_LOOP
+M2TC-031  PASS  Duplicate stage order in one program is refused  -> duplicate key value violates unique constraint "uq_stage_order"
+M2TC-032  PASS  Stage chain that loops back is refused (STAGE_LOOP)  -> STAGE_LOOP
+M2TC-033  PASS  Valid course is saved  -> accepted
+M2TC-034  PASS  Duplicate course code is refused  -> duplicate key value violates unique constraint "courses_code_key"
+M2TC-035  PASS  Courses refuse grading marks (Module 4 owns marks): column does not exist  -> column "written_marks" of relation "courses" does not exist
+M2TC-036  PASS  Negative credit is refused  -> new row for relation "courses" violates check constraint "chk_course_credit_total"
+M2TC-037  PASS  Course with zero theory and zero lab credit is refused  -> new row for relation "courses" violates check constraint "chk_course_credit_total"
+M2TC-038  PASS  Offering of an inactive course is refused (COURSE_INACTIVE)  -> COURSE_INACTIVE
+M2TC-039  PASS  Offering with no registration window columns: window is owned by Module 3  -> accepted
+M2TC-040  PASS  Overlapping cohort years in the same program are refused (COHORT_OVERLAP)  -> COHORT_OVERLAP
+M2TC-041  PASS  Next non-overlapping cohort is accepted  -> accepted
+M2TC-042  PASS  Preparer cannot approve the same version  -> new row for relation "curricula" violates check constraint "chk_approver_not_preparer"
+M2TC-043  PASS  Skipping review (DRAFT to PUBLISHED) is refused (INVALID_TRANSITION)  -> INVALID_TRANSITION
+M2TC-044  PASS  Full approval path DRAFT, REVIEW, APPROVED, PUBLISHED is accepted  -> accepted
+M2TC-045  PASS  Editing a published version is refused (PUBLISHED_IMMUTABLE)  -> PUBLISHED_IMMUTABLE
+M2TC-046  PASS  Deleting a published version is refused  -> CURRICULUM_NOT_DELETABLE
+M2TC-047  PASS  Course placement copies the course's credits  -> accepted
+M2TC-048  PASS  Placing a course twice in one version is refused  -> duplicate key value violates unique constraint "uq_course_once_per_version"
+M2TC-049  PASS  Changing a course after placement keeps the copied credits (US-06)  -> accepted
+M2TC-050  PASS  Adding an item to a frozen version is refused (CURRICULUM_FROZEN)  -> CURRICULUM_FROZEN
+M2TC-051  PASS  A prerequisite placed on a group item is refused (RULE_ON_GROUP)  -> RULE_ON_GROUP
+M2TC-052  PASS  A course cannot be its own prerequisite (SELF_PREREQUISITE)  -> SELF_PREREQUISITE
+M2TC-053  PASS  An AND/OR tree with a minimum grade is accepted  -> accepted
+M2TC-054  PASS  A rule tree that loops back is refused (RULE_LOOP)  -> RULE_LOOP
+M2TC-055  PASS  Changing a saved policy value is refused (POLICY_IMMUTABLE)  -> POLICY_IMMUTABLE
+M2TC-056  PASS  Deleting a saved policy is refused (POLICY_NOT_DELETABLE)  -> POLICY_NOT_DELETABLE
+M2TC-057  PASS  Setting an end date on a policy is accepted  -> accepted
+M2TC-058  PASS  Lab of a course with theory credit needs a theory link (LAB_NEEDS_THEORY_LINK)  -> LAB_NEEDS_THEORY_LINK
+M2TC-059  PASS  Lab-only course lab section needs no theory link  -> accepted
+M2TC-060  PASS  A lab cannot link to another lab section (LINK_MUST_BE_THEORY)  -> LINK_MUST_BE_THEORY
+M2TC-061  PASS  Section capacity of zero is accepted (Module 3 waitlist case)  -> accepted
+M2TC-062  PASS  Overlapping meetings in the same room are refused (ROOM_CLASH)  -> ROOM_CLASH
+M2TC-063  PASS  Back-to-back meetings in the same room are accepted  -> accepted
+M2TC-064  PASS  The same teacher in two rooms at the same time is refused (INSTRUCTOR_CLASH)  -> INSTRUCTOR_CLASH
+M2TC-065  PASS  A section larger than its room is refused (SECTION_EXCEEDS_ROOM)  -> SECTION_EXCEEDS_ROOM
+M2TC-066  PASS  A meeting whose term differs from the offering term is refused (MEETING_TERM_MISMATCH)  -> MEETING_TERM_MISMATCH
+M2TC-067  PASS  A meeting that ends before it starts is refused  -> new row for relation "section_meetings" violates check constraint "chk_meeting_order"
+M2TC-068  PASS  Audit rows cannot be updated (AUDIT_APPEND_ONLY)  -> AUDIT_APPEND_ONLY
+M2TC-069  PASS  Audit rows cannot be deleted (AUDIT_APPEND_ONLY)  -> AUDIT_APPEND_ONLY
+M2TC-070  PASS  An approved course relation cannot be deleted (RELATION_NOT_DELETABLE)  -> RELATION_NOT_DELETABLE
+M2TC-071  PASS  An approved course relation cannot be changed (RELATION_IMMUTABLE)  -> RELATION_IMMUTABLE
+M2TC-072  PASS  A course relation can be ended once  -> accepted
+M2TC-073  PASS  A policy end date, once set, cannot be changed again (POLICY_END_FIXED)  -> POLICY_END_FIXED
+M2TC-074  PASS  The audit log cannot be emptied with TRUNCATE (AUDIT_APPEND_ONLY)  -> AUDIT_APPEND_ONLY
+M2TC-075  PASS  A section cannot grow beyond the smallest room it is booked in (SECTION_EXCEEDS_ROOM)  -> SECTION_EXCEEDS_ROOM
+M2TC-076  PASS  Changing a section's teacher to one who is busy at that time is refused (INSTRUCTOR_CLASH)  -> INSTRUCTOR_CLASH
+M2TC-077  PASS  Overlapping policy periods in the same scope are refused (POLICY_OVERLAP)  -> POLICY_OVERLAP
+M2TC-078  PASS  An institution-wide policy and a program policy for the same period are both allowed (program overrides)  -> accepted
+M2TC-079  PASS  PASS_MARK is refused as a policy key (it belongs to Module 4)  -> new row for relation "academic_policies" violates check constraint "academic_policies_policy_key_check"
+M2TC-080  PASS  A prerequisite cycle across two courses is refused (PREREQ_CYCLE)  -> PREREQ_CYCLE
+M2TC-081  PASS  A second root in the same prerequisite tree is refused (one root per tree)  -> duplicate key value violates unique constraint "uq_one_root_per_tree"
+M2TC-082  PASS  The degree plan code cannot be changed (PLAN_CODE_FIXED)  -> PLAN_CODE_FIXED
+M2TC-083  PASS  A curriculum version gets a version code from its plan (1001-v1)  -> accepted
+M2TC-084  PASS  A curriculum version without a degree plan is refused (DEGREE_PLAN_REQUIRED)  -> DEGREE_PLAN_REQUIRED
+M2TC-085  PASS  A degree plan cannot hold a curriculum of another program (PLAN_OTHER_PROGRAM)  -> PLAN_OTHER_PROGRAM
+M2TC-086  PASS  Two simultaneous bookings of one room slot: exactly one succeeds (50 runs)  -> no failures
+
+Total 61  passed 61  failed 0
