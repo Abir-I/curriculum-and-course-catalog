@@ -6,6 +6,7 @@ import courses from "./http/routes/courses.js";
 import rooms from "./http/routes/rooms.js";
 import eligibility from "./http/routes/eligibility.js";
 import audit from "./http/routes/audit.js";
+import offerings from "./http/routes/offerings.js";
 import studyPlan from "./http/routes/study-plan.js";
 
 export const app = express();
@@ -17,6 +18,7 @@ app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }));
 app.use("/api/v1/courses", courses);
 app.use("/api/v1/rooms", rooms);
 app.use("/api/v1/eligibility", eligibility);
+app.use("/api/v1/offerings", offerings);
 app.use("/api/v1/audit", audit);
 app.use("/api/v1/curricula", studyPlan);
 
