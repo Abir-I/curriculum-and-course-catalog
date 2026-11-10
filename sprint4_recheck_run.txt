@@ -1,0 +1,52 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2410[2mms[22m[39m
+   [32m✓[39m Equivalence partitions: institution type [2m(8)[22m
+     [33m[2m✓[22m[39m M2TC-128 valid: SCHOOL[33m 328[2mms[22m[39m
+   [32m✓[39m Decision table: course creation [2m(4)[22m
+     [33m[2m✓[22m[39m M2TC-129 marks=false negative=false zero=false -> ok[33m 876[2mms[22m[39m
+ [32m✓[39m tests/eligibility.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 3293[2mms[22m[39m
+   [32m✓[39m Eligibility check [2m(5)[22m
+     [33m[2m✓[22m[39m M2TC-100: a student who passed the prerequisite is ELIGIBLE, with the reason[33m 806[2mms[22m[39m
+     [33m[2m✓[22m[39m M2TC-101: a student who has not passed the prerequisite is NOT_ELIGIBLE, with the reason[33m 935[2mms[22m[39m
+     [33m[2m✓[22m[39m M2TC-102: when Grading is down the answer is UNKNOWN and nothing is stored[33m 952[2mms[22m[39m
+     [33m[2m✓[22m[39m M2TC-177: a passed prerequisite below the minimum grade is NOT_ELIGIBLE; an unknown grade gives UNKNOWN (FR-24)[33m 419[2mms[22m[39m
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 845[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1337[2mms[22m[39m
+   [32m✓[39m US-05 Find a course quickly [2m(4)[22m
+     [33m[2m✓[22m[39m M2TC-019: results are paged, at most 20 per page by default, with the total count[33m 535[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 890[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 768[2mms[22m[39m
+ [32m✓[39m tests/eligibility-tree.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 554[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 597[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 396[2mms[22m[39m
+ [32m✓[39m tests/study-plan.test.js [2m([22m[2m2 tests[22m[2m)[22m[33m 663[2mms[22m[39m
+   [32m✓[39m FR-21 study plan [2m(2)[22m
+     [33m[2m✓[22m[39m S4-02b: a student (no staff role) cannot read the study plan[33m 391[2mms[22m[39m
+ [32m✓[39m tests/sections.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 538[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 547[2mms[22m[39m
+ [32m✓[39m tests/security/injection.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 407[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 528[2mms[22m[39m
+ [32m✓[39m tests/helpers/db-guard.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 466[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 423[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 469[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 707[2mms[22m[39m
+   [32m✓[39m US-06 Change a course without changing old records [2m(3)[22m
+     [33m[2m✓[22m[39m M2TC-098: a negative credit on update is refused (422)[33m 361[2mms[22m[39m
+ [32m✓[39m tests/progression.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 407[2mms[22m[39m
+ [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 473[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 570[2mms[22m[39m
+ [32m✓[39m tests/groups.test.js [2m([22m[2m2 tests[22m[2m)[22m[33m 350[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m2 tests[22m[2m)[22m[33m 323[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 271[2mms[22m[39m
+ [32m✓[39m tests/prereq.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 288[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m25 passed[39m[22m[90m (25)[39m
+[2m      Tests [22m [1m[32m98 passed[39m[22m[90m (98)[39m
+[2m   Start at [22m 16:11:30
+[2m   Duration [22m 23.12s[2m (tests 92%, setup 5%, import 2%, transform 1%, worker 1%)[22m
+
+[2m    Isolate [22m [33m25 workers spawned[39m[2m · ~114ms startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~2.74s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+
