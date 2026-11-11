@@ -1,0 +1,50 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/api/other.api.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 638[2mms[22m[39m
+ [32m✓[39m tests/eligibility.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1086[2mms[22m[39m
+   [32m✓[39m Eligibility check [2m(4)[22m
+     [33m[2m✓[22m[39m M2TC-102: when Grading is down the answer is UNKNOWN and nothing is stored[33m 433[2mms[22m[39m
+ [32m✓[39m tests/api/courses.api.test.js [2m([22m[2m9 tests[22m[2m)[22m[33m 1259[2mms[22m[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 1256[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1046[2mms[22m[39m
+ [32m✓[39m tests/api/curriculum.api.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1250[2mms[22m[39m
+   [32m✓[39m Curriculum API (FR-15, FR-16, FR-26) [2m(4)[22m
+     [33m[2m✓[22m[39m M2TC-164: an unknown group type is refused (422)[33m 508[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 824[2mms[22m[39m
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 747[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 835[2mms[22m[39m
+ [32m✓[39m tests/api/policy.api.test.js [2m([22m[2m2 tests[22m[2m)[22m[33m 574[2mms[22m[39m
+   [32m✓[39m Policy API (FR-33, FR-35, FR-36, FR-47) [2m(2)[22m
+     [33m[2m✓[22m[39m M2TC-166: an administrator may set a policy (201); a registrar may not (403)[33m 304[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 415[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 895[2mms[22m[39m
+   [32m✓[39m US-02 Create the academic structure [2m(5)[22m
+     [33m[2m✓[22m[39m M2TC-006: a PROGRAM must have a term pattern; other unit types must not[33m 347[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 346[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 491[2mms[22m[39m
+ [32m✓[39m tests/sections.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 546[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 547[2mms[22m[39m
+ [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 409[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 451[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 407[2mms[22m[39m
+ [32m✓[39m tests/progression.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 369[2mms[22m[39m
+ [32m✓[39m tests/api/sections.api.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 611[2mms[22m[39m
+   [32m✓[39m Sections API (FR-51, FR-52, FR-39) [2m(3)[22m
+     [33m[2m✓[22m[39m M2TC-160: capacity below occupied seats is refused (422)[33m 379[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 359[2mms[22m[39m
+ [32m✓[39m tests/groups.test.js [2m([22m[2m2 tests[22m[2m)[22m[32m 285[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m2 tests[22m[2m)[22m[32m 286[2mms[22m[39m
+ [32m✓[39m tests/api/offerings.api.test.js [2m([22m[2m2 tests[22m[2m)[22m[32m 276[2mms[22m[39m
+ [32m✓[39m tests/prereq.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 193[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 214[2mms[22m[39m
+ [32m✓[39m tests/api/errors.api.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 156[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m28 passed[39m[22m[90m (28)[39m
+[2m      Tests [22m [1m[32m109 passed[39m[22m[90m (109)[39m
+[2m   Start at [22m 13:28:37
+[2m   Duration [22m 22.58s[2m (tests 87%, import 6%, setup 5%, transform 2%, worker 1%)[22m
+
+[2m    Isolate [22m [33m28 workers spawned[39m[2m · ~110ms startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~2.96s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+
