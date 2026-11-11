@@ -1,0 +1,21 @@
+// Every visible string lives here (Sprint 5 task S5-F8, NFR-15/NFR-16).
+export const S = {
+  appTitle: "Course catalogue",
+  search: "Search",
+  noResults: "No courses found.",
+  code: "Code",
+  title: "Title",
+  credits: "Credits",
+  newCourse: "New course",
+  save: "Save",
+  saved: "Course saved.",
+  checkEligibility: "Check eligibility",
+  studentId: "Student ID",
+  courseId: "Course ID",
+  termId: "Term ID",
+  check: "Check",
+  unknownBanner: "Registration blocked: result unavailable. Try again later.",
+  creditNegative: "Credit cannot be negative (rule: credits are 0 or more).",
+  codeRequired: "Course code is required.",
+  titleRequired: "English title is required.",
+};
