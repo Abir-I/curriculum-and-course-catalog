@@ -7,7 +7,7 @@ import { resetDatabase } from "../helpers/db.js";
 
 const REG = { "x-user-id": "00000000-0000-4000-8000-000000000011", "x-roles": "REGISTRAR" };
 const UUID = "00000000-0000-4000-8000-000000000011";
-let planId, versionId, itemId, courseAId, courseBId;
+let planId, versionId, itemAId, itemBId, courseAId, courseBId;
 
 beforeEach(async () => {
   await resetDatabase();
@@ -16,8 +16,10 @@ beforeEach(async () => {
   const cur = await prisma.curriculum.create({ data: { programId: prog.id, degreePlanId: plan.id, versionNo: 1, cohortStartYear: 2026, cohortEndYear: 2029, preparedBy: UUID } });
   const a = await prisma.course.create({ data: { code: "CUR-A", titleEn: "A", theoryCredit: 3, labCredit: 0 } });
   const b = await prisma.course.create({ data: { code: "CUR-B", titleEn: "B", theoryCredit: 3, labCredit: 0 } });
-  const item = await prisma.curriculumItem.create({ data: { curriculumId: cur.id, itemType: "COURSE", courseId: a.id } });
-  planId = plan.id; versionId = cur.id; itemId = item.id; courseAId = a.id; courseBId = b.id;
+  const itemA = await prisma.curriculumItem.create({ data: { curriculumId: cur.id, itemType: "COURSE", courseId: a.id } });
+  const itemB = await prisma.curriculumItem.create({ data: { curriculumId: cur.id, itemType: "COURSE", courseId: b.id } });
+  planId = plan.id; versionId = cur.id;
+  itemAId = itemA.id; itemBId = itemB.id; courseAId = a.id; courseBId = b.id;
 });
 
 describe("Curriculum API (FR-15, FR-16, FR-26)", () => {
@@ -34,13 +36,20 @@ describe("Curriculum API (FR-15, FR-16, FR-26)", () => {
     expect(res.status).toBe(422);
   });
 
-  it("M2TC-165: a prerequisite cycle is refused (422 PREREQ_CYCLE)", async () => {
-    // A requires B, then B requires A: the second link closes a cycle.
-    await request(app).post(`/api/v1/curricula/items/${itemId}/prerequisites`).set(REG)
+  it("M2TC-165: a prerequisite cycle across two courses is refused (422 PREREQ_CYCLE)", async () => {
+    // A requires B (accepted), then B requires A closes the cycle.
+    await request(app).post(`/api/v1/curricula/items/${itemAId}/prerequisites`).set(REG)
       .send({ requiredCourseId: courseBId });
-    const res = await request(app).post(`/api/v1/curricula/items/${itemId}/prerequisites`).set(REG)
+    const res = await request(app).post(`/api/v1/curricula/items/${itemBId}/prerequisites`).set(REG)
       .send({ requiredCourseId: courseAId });
     expect(res.status).toBe(422);
     expect(res.body.code).toBe("PREREQ_CYCLE");
+  });
+
+  it("M2TC-165b: a course that requires itself is refused (422 SELF_PREREQUISITE)", async () => {
+    const res = await request(app).post(`/api/v1/curricula/items/${itemAId}/prerequisites`).set(REG)
+      .send({ requiredCourseId: courseAId });
+    expect(res.status).toBe(422);
+    expect(res.body.code).toBe("SELF_PREREQUISITE");
   });
 });
