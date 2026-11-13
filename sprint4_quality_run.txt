@@ -1,0 +1,18 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 2343[2mms[22m[39m
+   [32m✓[39m Equivalence partitions: institution type [2m(8)[22m
+     [33m[2m✓[22m[39m M2TC-128 valid: SCHOOL[33m 334[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 979[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 894[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 262[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m27 passed[39m[22m[90m (27)[39m
+[2m   Start at [22m 01:49:32
+[2m   Duration [22m 5.31s[2m (tests 93%, setup 4%, transform 1%, import 1%)[22m
+
+[2m    Isolate [22m [33m4 workers spawned[39m[2m · ~119ms startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~358ms faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+

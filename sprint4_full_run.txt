@@ -1,0 +1,45 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90mE:/module2-sprint1[39m
+
+ [32m✓[39m tests/eligibility.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 1151[2mms[22m[39m
+   [32m✓[39m Eligibility check [2m(5)[22m
+     [33m[2m✓[22m[39m M2TC-177: a passed prerequisite below the minimum grade is NOT_ELIGIBLE; an unknown grade gives UNKNOWN (FR-24)[33m 443[2mms[22m[39m
+ [32m✓[39m tests/us07_08_09_curriculum.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 1116[2mms[22m[39m
+ [32m✓[39m tests/eligibility-tree.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 790[2mms[22m[39m
+ [32m✓[39m tests/quality/state-security-error.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 1281[2mms[22m[39m
+   [32m✓[39m State transitions: curriculum lifecycle [2m(3)[22m
+     [33m[2m✓[22m[39m M2TC-132: DRAFT straight to PUBLISHED is refused (INVALID_TRANSITION) - a skipped state[33m 364[2mms[22m[39m
+ [32m✓[39m tests/quality/boundary.test.js [2m([22m[2m7 tests[22m[2m)[22m[33m 880[2mms[22m[39m
+ [32m✓[39m tests/progression.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 430[2mms[22m[39m
+ [32m✓[39m tests/sections.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 522[2mms[22m[39m
+ [32m✓[39m tests/groups.test.js [2m([22m[2m2 tests[22m[2m)[22m[33m 315[2mms[22m[39m
+ [32m✓[39m tests/quality/equivalence-decision.test.js [2m([22m[2m12 tests[22m[2m)[22m[33m 1432[2mms[22m[39m
+ [32m✓[39m tests/study-plan.test.js [2m([22m[2m2 tests[22m[2m)[22m[33m 2298[2mms[22m[39m
+   [32m✓[39m FR-21 study plan [2m(2)[22m
+     [33m[2m✓[22m[39m S4-02a: courses are grouped by stage in stage order[33m 2048[2mms[22m[39m
+ [32m✓[39m tests/us03_stages.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 502[2mms[22m[39m
+ [32m✓[39m tests/us02_units.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 600[2mms[22m[39m
+ [32m✓[39m tests/policy.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 423[2mms[22m[39m
+ [32m✓[39m tests/us12_room_teacher_clash.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 434[2mms[22m[39m
+ [32m✓[39m tests/us20_audit.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 447[2mms[22m[39m
+ [32m✓[39m tests/offerings.test.js [2m([22m[2m2 tests[22m[2m)[22m[32m 288[2mms[22m[39m
+ [32m✓[39m tests/us06_course_update.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 432[2mms[22m[39m
+ [32m✓[39m tests/us05_course_search.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 1060[2mms[22m[39m
+ [32m✓[39m tests/prereq.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 194[2mms[22m[39m
+ [32m✓[39m tests/security/injection.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 427[2mms[22m[39m
+ [32m✓[39m tests/us01_institution_type.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 404[2mms[22m[39m
+ [32m✓[39m tests/us04_courses.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 506[2mms[22m[39m
+ [32m✓[39m tests/quality/concurrency.test.js [2m([22m[2m1 test[22m[2m)[22m[32m 218[2mms[22m[39m
+ [32m✓[39m tests/us21_rooms.test.js [2m([22m[2m3 tests[22m[2m)[22m[33m 596[2mms[22m[39m
+   [32m✓[39m US-21 Rooms [2m(3)[22m
+     [33m[2m✓[22m[39m M2TC-087: a room is saved with code, capacity and type[33m 349[2mms[22m[39m
+ [32m✓[39m tests/helpers/db-guard.test.js [2m([22m[2m4 tests[22m[2m)[22m[33m 480[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m25 passed[39m[22m[90m (25)[39m
+[2m      Tests [22m [1m[32m98 passed[39m[22m[90m (98)[39m
+[2m   Start at [22m 01:38:33
+[2m   Duration [22m 21.58s[2m (tests 92%, setup 5%, import 2%, transform 1%, worker 1%)[22m
+
+[2m    Isolate [22m [33m25 workers spawned[39m[2m · ~105ms startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~2.53s faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m
+

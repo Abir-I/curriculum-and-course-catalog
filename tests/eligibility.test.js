@@ -14,20 +14,21 @@ import {
 import { setGradingClient } from "../src/clients/grading.client.js";
 import { check } from "../src/eligibility/eligibility.service.js";
 import { seedProgram } from "./helpers/seed.js";
+import { resetDatabase } from "./helpers/db.js";
 import { fakeGrading } from "./helpers/fakes.js";
 
 const MANAGER = { id: 13, roles: ["CURRICULUM_MANAGER"] };
 const REGISTRAR = { id: 11, roles: ["REGISTRAR"] };
 
 // CSE201 requires CSE101. Returns the course ids the check needs.
-async function courseWithPrerequisite() {
+async function courseWithPrerequisite(minGrade) {
   const prereq = await createCourse({ code: "CSE101", titleEn: "Intro", theoryCredit: 3 }, REGISTRAR);
   const course = await createCourse({ code: "CSE201", titleEn: "Data Structures", theoryCredit: 3 }, REGISTRAR);
   const programId = await seedProgram();
   const plan = await createDegreePlan({ planCode: "4001", programId, nameEn: "Plan" }, MANAGER);
   const version = await createVersion(plan.id, { cohortStartYear: 2026, cohortEndYear: 2028 }, MANAGER);
   const item = await addCourseToVersion(version.id, course.id, MANAGER);
-  await setPrerequisite(item.id, prereq.id, MANAGER);
+  await setPrerequisite(item.id, prereq.id, MANAGER, minGrade ? { minGrade } : {});
   return { courseId: course.id };
 }
 
@@ -70,5 +71,25 @@ describe("Eligibility check", () => {
     setGradingClient(fakeGrading({ inProgress: [{ code: "CSE101" }] }));
     const answer = await check({ studentId: "S-103", courseId });
     expect(answer.result).toBe("ELIGIBLE_IN_PROGRESS");
+  });
+
+  it("M2TC-177: a passed prerequisite below the minimum grade is NOT_ELIGIBLE; an unknown grade gives UNKNOWN (FR-24)", async () => {
+    const low = await courseWithPrerequisite("C");
+    setGradingClient(fakeGrading({ passed: [{ code: "CSE101", grade: "D" }] }));
+    const below = await check({ studentId: "S-177a", courseId: low.courseId });
+    expect(below.result).toBe("NOT_ELIGIBLE");
+    expect(below.reasons.join(" ")).toMatch(/below the minimum C/);
+
+    await resetDatabase();
+    const ok = await courseWithPrerequisite("C");
+    setGradingClient(fakeGrading({ passed: [{ code: "CSE101", grade: "B" }] }));
+    const enough = await check({ studentId: "S-177b", courseId: ok.courseId });
+    expect(enough.result).toBe("ELIGIBLE");
+
+    await resetDatabase();
+    const odd = await courseWithPrerequisite("C");
+    setGradingClient(fakeGrading({ passed: [{ code: "CSE101", grade: "??" }] }));
+    const unknown = await check({ studentId: "S-177c", courseId: odd.courseId });
+    expect(unknown.result).toBe("UNKNOWN");
   });
 });

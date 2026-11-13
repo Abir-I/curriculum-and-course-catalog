@@ -1,0 +1,85 @@
+-- Module 2 sample data (optional). Use on a development database only.
+-- Fixed UUIDs make the sample easy to read and to reference from other modules' tests.
+-- User IDs below are placeholders for Module 1 users.
+BEGIN;
+
+-- academic units: faculty > department > program > stream
+INSERT INTO academic_units (id, parent_id, unit_type, code, name_en, name_bn, term_pattern) VALUES
+ ('10000000-0000-4000-8000-000000000001', NULL, 'FACULTY', 'FAC-SCI', 'Faculty of Science', 'বিজ্ঞান অনুষদ', NULL),
+ ('10000000-0000-4000-8000-000000000002', '10000000-0000-4000-8000-000000000001', 'DEPARTMENT', 'DEPT-CSE', 'Computer Science and Engineering', 'কম্পিউটার সায়েন্স অ্যান্ড ইঞ্জিনিয়ারিং', NULL),
+ ('10000000-0000-4000-8000-000000000003', '10000000-0000-4000-8000-000000000002', 'PROGRAM', 'PRG-BSC-CSE', 'BSc in CSE', 'বিএসসি ইন সিএসই', 'SEMESTER'),
+ ('10000000-0000-4000-8000-000000000004', '10000000-0000-4000-8000-000000000003', 'STREAM', 'STR-SE', 'Software Engineering', 'সফটওয়্যার ইঞ্জিনিয়ারিং', NULL);
+
+-- stages of the program
+INSERT INTO academic_stages (id, program_id, seq_no, name_en, name_bn, next_stage_id) VALUES
+ ('20000000-0000-4000-8000-000000000003', '10000000-0000-4000-8000-000000000003', 3, 'Semester 3', 'সেমিস্টার ৩', NULL),
+ ('20000000-0000-4000-8000-000000000002', '10000000-0000-4000-8000-000000000003', 2, 'Semester 2', 'সেমিস্টার ২', '20000000-0000-4000-8000-000000000003'),
+ ('20000000-0000-4000-8000-000000000001', '10000000-0000-4000-8000-000000000003', 1, 'Semester 1', 'সেমিস্টার ১', '20000000-0000-4000-8000-000000000002');
+
+-- terms
+INSERT INTO academic_terms (id, term_type, session_label, name_en, name_bn, starts_on, ends_on) VALUES
+ ('30000000-0000-4000-8000-000000000001', 'SEMESTER', '2026-FALL', 'Fall 2026', 'শরৎ ২০২৬', '2026-09-01', '2026-12-31'),
+ ('30000000-0000-4000-8000-000000000002', 'SEMESTER', '2027-SPRING', 'Spring 2027', 'বসন্ত ২০২৭', '2027-01-15', '2027-05-15');
+
+-- courses
+INSERT INTO courses (id, code, title_en, title_bn, theory_credit, lab_credit) VALUES
+ ('40000000-0000-4000-8000-000000000001', 'CSE101', 'Introduction to Programming', 'প্রোগ্রামিং পরিচিতি', 3, 0),
+ ('40000000-0000-4000-8000-000000000002', 'CSE102', 'Data Structures', 'ডেটা স্ট্রাকচার', 3, 0),
+ ('40000000-0000-4000-8000-000000000003', 'CSE103L', 'Programming Lab', 'প্রোগ্রামিং ল্যাব', 0, 1),
+ ('40000000-0000-4000-8000-000000000004', 'MAT101', 'Calculus', 'ক্যালকুলাস', 3, 0),
+ ('40000000-0000-4000-8000-000000000005', 'ENG101', 'English Composition', 'ইংরেজি রচনা', 3, 0);
+
+-- rooms
+INSERT INTO rooms (id, code, building, campus, room_type, capacity) VALUES
+ ('50000000-0000-4000-8000-000000000001', 'R-101', 'Academic Building', 'Main', 'LECTURE', 60),
+ ('50000000-0000-4000-8000-000000000002', 'R-102', 'Academic Building', 'Main', 'LECTURE', 60),
+ ('50000000-0000-4000-8000-000000000003', 'LAB-1', 'Academic Building', 'Main', 'LAB', 30);
+
+-- degree plan 1001 (CSE) and curriculum version 1001-v1 for cohort 2026-2029 (DRAFT)
+INSERT INTO degree_plans (id, plan_code, program_id, name_en, name_bn) VALUES
+ ('65000000-0000-4000-8000-000000000001', '1001', '10000000-0000-4000-8000-000000000003', 'BSc in CSE', 'বিএসসি ইন সিএসই');
+INSERT INTO curricula (id, program_id, degree_plan_id, version_no, cohort_start_year, cohort_end_year, prepared_by) VALUES
+ ('60000000-0000-4000-8000-000000000001', '10000000-0000-4000-8000-000000000003', '65000000-0000-4000-8000-000000000001', 1, 2026, 2029, '90000000-0000-4000-8000-000000000001');
+
+-- requirement groups and course placements
+INSERT INTO curriculum_items (id, curriculum_id, item_type, group_type, sort_order) VALUES
+ ('70000000-0000-4000-8000-000000000001', '60000000-0000-4000-8000-000000000001', 'GROUP', 'CORE', 1);
+INSERT INTO curriculum_items (id, curriculum_id, parent_item_id, item_type, course_id, stage_id, sort_order) VALUES
+ ('70000000-0000-4000-8000-000000000011', '60000000-0000-4000-8000-000000000001', '70000000-0000-4000-8000-000000000001', 'COURSE', '40000000-0000-4000-8000-000000000001', '20000000-0000-4000-8000-000000000001', 1),
+ ('70000000-0000-4000-8000-000000000012', '60000000-0000-4000-8000-000000000001', '70000000-0000-4000-8000-000000000001', 'COURSE', '40000000-0000-4000-8000-000000000002', '20000000-0000-4000-8000-000000000002', 2),
+ ('70000000-0000-4000-8000-000000000013', '60000000-0000-4000-8000-000000000001', '70000000-0000-4000-8000-000000000001', 'COURSE', '40000000-0000-4000-8000-000000000003', '20000000-0000-4000-8000-000000000001', 3),
+ ('70000000-0000-4000-8000-000000000014', '60000000-0000-4000-8000-000000000001', '70000000-0000-4000-8000-000000000001', 'COURSE', '40000000-0000-4000-8000-000000000004', '20000000-0000-4000-8000-000000000001', 4),
+ ('70000000-0000-4000-8000-000000000015', '60000000-0000-4000-8000-000000000001', '70000000-0000-4000-8000-000000000001', 'COURSE', '40000000-0000-4000-8000-000000000005', '20000000-0000-4000-8000-000000000001', 5);
+
+-- prerequisite: CSE102 needs CSE101 with minimum grade C (AND node at root)
+INSERT INTO prerequisite_rules (id, curriculum_item_id, rule_kind, node_type) VALUES
+ ('80000000-0000-4000-8000-000000000001', '70000000-0000-4000-8000-000000000012', 'PREREQUISITE', 'AND');
+INSERT INTO prerequisite_rules (curriculum_item_id, rule_kind, node_type, parent_node_id, course_id, min_grade) VALUES
+ ('70000000-0000-4000-8000-000000000012', 'PREREQUISITE', 'COURSE', '80000000-0000-4000-8000-000000000001', '40000000-0000-4000-8000-000000000001', 'C');
+
+-- institution and program policies (effective-dated)
+INSERT INTO academic_policies (policy_key, scope_unit_id, value, effective_from, created_by) VALUES
+ ('INSTITUTION_TYPE', NULL, '{"type": "COLLEGE"}', '2026-01-01', '90000000-0000-4000-8000-000000000002'),
+ ('MIN_ATTENDANCE', NULL, '{"pct": 70}', '2026-01-01', '90000000-0000-4000-8000-000000000002');
+
+-- offerings for Fall 2026 (OPEN) and sections
+INSERT INTO course_offerings (id, course_id, term_id, curriculum_id, status) VALUES
+ ('A0000000-0000-4000-8000-000000000001', '40000000-0000-4000-8000-000000000001', '30000000-0000-4000-8000-000000000001', '60000000-0000-4000-8000-000000000001', 'OPEN'),
+ ('A0000000-0000-4000-8000-000000000002', '40000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000001', '60000000-0000-4000-8000-000000000001', 'OPEN'),
+ ('A0000000-0000-4000-8000-000000000003', '40000000-0000-4000-8000-000000000003', '30000000-0000-4000-8000-000000000001', '60000000-0000-4000-8000-000000000001', 'OPEN');
+
+INSERT INTO course_sections (id, offering_id, section_code, section_type, instructor_user_id, capacity) VALUES
+ ('B0000000-0000-4000-8000-000000000001', 'A0000000-0000-4000-8000-000000000001', 'A', 'THEORY', '90000000-0000-4000-8000-000000000011', 40),
+ ('B0000000-0000-4000-8000-000000000002', 'A0000000-0000-4000-8000-000000000001', 'B', 'THEORY', '90000000-0000-4000-8000-000000000012', 0),
+ ('B0000000-0000-4000-8000-000000000003', 'A0000000-0000-4000-8000-000000000002', 'A', 'THEORY', '90000000-0000-4000-8000-000000000013', 40);
+INSERT INTO course_sections (id, offering_id, section_code, section_type, linked_theory_section_id, instructor_user_id, capacity) VALUES
+ ('B0000000-0000-4000-8000-000000000004', 'A0000000-0000-4000-8000-000000000003', 'L1', 'LAB', NULL, '90000000-0000-4000-8000-000000000011', 25);
+
+-- lab-only course CSE103L needs no theory link; the lab section belongs to its offering
+-- weekly meetings (day 1 = Sunday ... 7 = Saturday; minutes from midnight)
+INSERT INTO section_meetings (section_id, room_id, term_id, day_of_week, start_minute, end_minute) VALUES
+ ('B0000000-0000-4000-8000-000000000001', '50000000-0000-4000-8000-000000000001', '30000000-0000-4000-8000-000000000001', 1, 540, 630),
+ ('B0000000-0000-4000-8000-000000000003', '50000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000001', 1, 630, 720),
+ ('B0000000-0000-4000-8000-000000000004', '50000000-0000-4000-8000-000000000003', '30000000-0000-4000-8000-000000000001', 3, 840, 930);
+
+COMMIT;
